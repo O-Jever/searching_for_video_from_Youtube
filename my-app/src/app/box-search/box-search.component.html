@@ -1,0 +1,12 @@
+<p *ngIf="items.length === 0 || tempForResStatus === 'Ничего не найдено'; else cards">
+    {{tempForResStatus}}
+</p>
+<ng-template #cards>
+    <div *ngFor="let item of items" class="card">
+        <img src="{{item.imgUrl.url}}" alt="{{item.title}}">
+        <strong>{{item.title}}</strong> <!--Приходят непонятные знаки (например, &#39) - исправить-->
+        <p>{{item.description}}</p>
+        <a href="https://www.youtube.com/watch?v={{item.videoId}}" class="linkToVideo">Ссылка</a>
+    </div>
+</ng-template>
+

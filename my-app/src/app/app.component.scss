@@ -1,0 +1,17 @@
+::ng-deep body {
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    background-color: snow;
+}
+.wrapper {
+    border: 1px solid silver;
+    margin: auto;
+    padding: 25px;
+}
+
+.cards {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}

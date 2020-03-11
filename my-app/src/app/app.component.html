@@ -1,0 +1,6 @@
+<div class="wrapper">
+    <div>
+        <app-input-search (appInputSearch)="appInputSearch($event)" (responceStatus)="responceStatus($event)"></app-input-search>
+    </div>
+    <app-box-search [items]="listOfCards" resStatus={{status}} class="wrapper cards"></app-box-search> 
+</div>
