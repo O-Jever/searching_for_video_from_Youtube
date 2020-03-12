@@ -8,18 +8,18 @@
 })
 export class AppComponent {
 
-  listOfCards: any[] = [];
-  status: string = "Начните поиск";
+  public listOfCards: any[] = [];
+  public status: string = "Начните поиск";
   
   constructor () {
   }
 
-  responceStatus(ev) {
+  public responceStatus (ev) : void {
     this.status = ev;
     console.log("Статус ответа", this.status);
   }
 
-  appInputSearch(event) {
+  public appInputSearch (event) {
     this.listOfCards = event;
     console.log('Какая-то фигня', this.listOfCards);
   }

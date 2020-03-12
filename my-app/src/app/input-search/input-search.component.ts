@@ -18,10 +18,10 @@ export class InputSearchComponent implements AfterViewInit {
 
   @ViewChild('searchInput') searchInput;
 
-  ngAfterViewInit() : void {
+  public ngAfterViewInit () : void {
     this.callRequireForYoutubeService();
   }  
-  callRequireForYoutubeService() {
+  public callRequireForYoutubeService () : void {
     fromEvent(this.searchInput.nativeElement, 'keyup')
     .pipe(
       map((event: any) => event.target.value),
@@ -29,7 +29,7 @@ export class InputSearchComponent implements AfterViewInit {
       distinct() 
       )
     .subscribe(result => {
-      if (result !== '') {
+      if (result) {
         this.responceStatus.emit("Загрузка");
         console.log('Список букв', result);
         this.callYoutubeService.getInfoAboutVideo(result)
