@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, ViewChild, ElementRef, EventEmitter, AfterViewInit } from '@angular/core';
 import { YoutubeService } from '../youtube.service';
 import { fromEvent } from 'rxjs';
-import { distinct, debounceTime, map } from 'rxjs/operators';
+import { debounceTime, map, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-input-search',
@@ -18,7 +18,7 @@ export class InputSearchComponent implements AfterViewInit {
 
   @ViewChild('searchInput') searchInput;
 
-  public ngAfterViewInit () : void {
+  public ngAfterViewInit() : void {
     this.callRequireForYoutubeService();
   }  
   public callRequireForYoutubeService () : void {
@@ -26,15 +26,14 @@ export class InputSearchComponent implements AfterViewInit {
     .pipe(
       map((event: any) => event.target.value),
       debounceTime(900),
-      distinct() 
+      distinctUntilChanged()
       )
     .subscribe(result => {
-      if (result) {
+      if (result.length > 0 && result.match(/^\s/) === null) {
         this.responceStatus.emit("Загрузка");
-        console.log('Список букв', result);
         this.callYoutubeService.getInfoAboutVideo(result)
           .pipe()
-          .subscribe(result => {
+          .subscribe(result => { 
             this.appInputSearch.emit(result);
         });
       } else this.responceStatus.emit("Ничего не найдено");
