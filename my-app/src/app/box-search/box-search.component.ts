@@ -14,15 +14,13 @@ export class BoxSearchComponent implements OnInit{
 
   public tempForResStatus: string = '';
 
-  public ngOnInit (): void {
-    //this.tempForResStatus = this.resStatus;
-   console.log('Список видео', this.items.length);
-    //console.log('Тестовая фигня', this.resStatus);
+  public ngOnInit () : void {
+    //this.items.splice(0, this.items.length);
+    console.log('Список видео', this.items.length);
   }
  
   public ngOnChanges () : void {
     this.tempForResStatus = this.resStatus;
-    console.log('Тестовая фигня', this.resStatus);
   }
 
 }
