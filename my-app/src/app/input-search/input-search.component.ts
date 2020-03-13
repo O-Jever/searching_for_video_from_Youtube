@@ -30,7 +30,7 @@ export class InputSearchComponent implements AfterViewInit {
       )
     .subscribe(result => {
       if (result.length > 0 && result.match(/^\s/) === null) {
-        this.responceStatus.emit("Загрузка");
+        this.responceStatus.emit("Загрузка"); 
         this.callYoutubeService.getInfoAboutVideo(result)
           .pipe()
           .subscribe(result => { 

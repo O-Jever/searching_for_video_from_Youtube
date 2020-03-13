@@ -16,12 +16,12 @@ export class BoxSearchComponent implements OnInit, OnChanges{
   public tempForResStatus: string = '';
   public tempForItems: any = [];
 
-
   public ngOnInit () : void {
   }
  
   public ngOnChanges (changes: SimpleChanges) : void {
-    this.tempForItems.length = 0;
+    //this.tempForItems.length = 0;
+    this.tempForItems.splice(0, this.tempForItems.length); //заебись фикс (нет)
     console.log("Просходящие изменения", changes);
     this.tempForItems = this.items;
     this.tempForResStatus = this.resStatus;

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { environment } from '../environments/environment'
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { ResponceFromYoutube } from './responce-from-youtube';
 import { InfoListAboutVideo } from './responce-interface';
+import { error } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +22,11 @@ export class YoutubeService {
       .set(`type`, 'video')
       .set(`maxResults`, '12')
       .set(`regionCode`, 'RU')
+      //.set('relevanceLanguage','ru')
       .set(`key`, environment.keyApi)
     }).pipe(
         map((res) => {
+          console.log("Ответ от сервера", res)
           //const responceFromYoutube = new ResponceFromYoutube(res);
           //return responceFromYoutube.getResponceFromYoutube();
           return res['items'].map(result => {
@@ -34,6 +37,12 @@ export class YoutubeService {
               imgUrl: result['snippet']['thumbnails']['medium']
             };
         });
-      }));
+      }),
+      catchError(err => {  
+        console.log(err); 
+        alert("Сервис не доступен!");
+        return throwError(err);
+      })
+      );
 }
 }
