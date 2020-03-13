@@ -5,11 +5,7 @@
 export const environment = {
   production: false,
   //keyApi: 'AIzaSyAU_OKZvc91kIAC_bi8nmXaC8Q8-bwr4xY',
-  keyApi: 'AIzaSyCGeUm5sj42PsAoLPRVOOG-mqudqhdJwwU',
-  url: 'https://www.googleapis.com/youtube/v3/search',
-  maxResults: 12,
-  type: 'video',
-  regionCode: 'RU'
+  keyApi: 'AIzaSyCGeUm5sj42PsAoLPRVOOG-mqudqhdJwwU'
 };
 
 

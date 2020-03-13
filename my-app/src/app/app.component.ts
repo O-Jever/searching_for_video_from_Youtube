@@ -1,6 +1,6 @@
  import { Component, ViewChild } from '@angular/core';
  import { from, Observable, BehaviorSubject } from 'rxjs';
- import { ResponceInterface } from './responce-interface';
+ import { InfoListAboutVideo } from './responce-interface';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@
 })
 export class AppComponent {
 
-  public listOfCards: ResponceInterface[] = [];
+  public listOfCards: InfoListAboutVideo[] = [];
   public status: string = "Начните поиск";
   
   constructor () {
@@ -20,7 +20,7 @@ export class AppComponent {
   }
 
   public appInputSearch (event) : void {
-    console.log("Событие", event);
+    //console.log("Событие", event);
     this.listOfCards = event;
   }
 

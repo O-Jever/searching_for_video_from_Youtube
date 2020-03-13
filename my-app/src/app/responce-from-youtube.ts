@@ -1,7 +1,7 @@
-import { ResponceInterface } from './responce-interface';
+import { InfoListAboutVideo } from './responce-interface';
 
 export class ResponceFromYoutube {
-    private responceItems: ResponceInterface; 
+    private responceItems: InfoListAboutVideo; 
     
     constructor(responceItems){
         this.responceItems = responceItems['items'].map(res => {

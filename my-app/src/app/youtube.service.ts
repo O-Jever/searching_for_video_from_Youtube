@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment'
 import { map } from 'rxjs/operators';
 import { ResponceFromYoutube } from './responce-from-youtube';
-import { ResponceInterface } from './responce-interface';
+import { InfoListAboutVideo } from './responce-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +13,16 @@ export class YoutubeService {
 
   constructor(public http: HttpClient) {}
 
-  public getInfoAboutVideo (keyWords: string) : Observable<ResponceInterface> {
+  public getInfoAboutVideo (keyWords: string) : Observable<InfoListAboutVideo> {
     keyWords = encodeURI(keyWords);
-    //переписать с помощью http params
-    let fullUrl = environment.url + '?part=snippet' + '&q=' + keyWords + '&type=' 
-    + environment.type + '&maxResults='+ environment.maxResults + '&regionCode=' 
-    + environment.regionCode + '&key=' + environment.keyApi;
-     return this.http.get(fullUrl)
-      .pipe(
+    return this.http.get('https://www.googleapis.com/youtube/v3/search?part=snippet', {
+      params: new HttpParams()
+      .set(`q`, keyWords)
+      .set(`type`, 'video')
+      .set(`maxResults`, '12')
+      .set(`regionCode`, 'RU')
+      .set(`key`, environment.keyApi)
+    }).pipe(
         map((res) => {
           //const responceFromYoutube = new ResponceFromYoutube(res);
           //return responceFromYoutube.getResponceFromYoutube();
@@ -31,7 +33,7 @@ export class YoutubeService {
               description: result['snippet']['description'],
               imgUrl: result['snippet']['thumbnails']['medium']
             };
-          });
-        }));
-  }
+        });
+      }));
+}
 }

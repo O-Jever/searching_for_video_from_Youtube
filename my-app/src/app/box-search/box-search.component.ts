@@ -1,25 +1,29 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-box-search',
   templateUrl: './box-search.component.html',
   styleUrls: ['./box-search.component.scss']
 })
-export class BoxSearchComponent implements OnInit{
+export class BoxSearchComponent implements OnInit, OnChanges{
 
   constructor() { }
 
   @Input('items') items;
   @Input('resStatus') resStatus;
+  @ViewChild('cards') cards;
 
   public tempForResStatus: string = '';
+  public tempForItems: any = [];
+
 
   public ngOnInit () : void {
-    //this.items.splice(0, this.items.length);
-    console.log('Список видео', this.items.length);
   }
  
-  public ngOnChanges () : void {
+  public ngOnChanges (changes: SimpleChanges) : void {
+    this.tempForItems.length = 0;
+    console.log("Просходящие изменения", changes);
+    this.tempForItems = this.items;
     this.tempForResStatus = this.resStatus;
   }
 
