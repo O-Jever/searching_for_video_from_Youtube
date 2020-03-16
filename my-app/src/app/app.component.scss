@@ -3,15 +3,13 @@
     font-size: 10pt;
     background-color: snow;
 }
+
 .wrapper {
     border: 1px solid silver;
     margin: auto;
     padding: 25px;
 }
 
-.cards {
-    margin-top: 20px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+.menuStyle {
+    margin-bottom: 20px;
 }

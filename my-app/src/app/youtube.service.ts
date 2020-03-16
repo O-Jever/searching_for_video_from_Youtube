@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { environment } from '../environments/environment'
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, delay } from 'rxjs/operators';
 import { ResponceFromYoutube } from './responce-from-youtube';
 import { InfoListAboutVideo } from './responce-interface';
 import { error } from '@angular/compiler/src/util';
@@ -25,6 +25,7 @@ export class YoutubeService {
       //.set('relevanceLanguage','ru')
       .set(`key`, environment.keyApi)
     }).pipe(
+        //delay(300),
         map((res) => {
           console.log("Ответ от сервера", res)
           //const responceFromYoutube = new ResponceFromYoutube(res);

@@ -1,30 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { YoutubeService } from './youtube.service';
-import { InputSearchComponent } from './input-search/input-search.component';
-import { HttpClientModule } from '@angular/common/http';
-import { BoxSearchComponent } from './box-search/box-search.component';
+import { MenuComponent } from './menu/menu.component';
+import { AppRoutingModule } from './app-routing.module';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputSearchComponent,
-    BoxSearchComponent
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    CommonModule
-  ],
-  providers: [
-    YoutubeService
+    CommonModule,
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor (router: Router) {}
+ }
