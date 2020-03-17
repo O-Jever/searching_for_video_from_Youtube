@@ -4,10 +4,6 @@ import { AppComponent } from './app.component';
 
 const routes: Routes =[
   { 
-    path: '', 
-    component: AppComponent 
-  },
-  { 
     path: 'test',
     loadChildren: () => import('./test/test.module').then(m => m.TestModule) 
   },

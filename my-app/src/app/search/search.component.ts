@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { from, Observable, BehaviorSubject } from 'rxjs';
+import { Component } from '@angular/core';
 import { InfoListAboutVideo } from '../responce-interface';
 
 @Component({
@@ -20,7 +19,6 @@ export class SearchComponent {
  }
 
  public appInputSearch (event) : void {
-   //console.log("Событие", event);
    this.listOfCards = event;
  }
 
