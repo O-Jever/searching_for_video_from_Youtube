@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     SearchRoutingModule,
     HttpClientModule,
-    //CommonModule,
+    CommonModule,
   ],
   declarations: [
     SearchComponent,
