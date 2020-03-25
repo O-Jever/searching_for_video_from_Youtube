@@ -8,16 +8,31 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Valida
 })
 
 
-
 export class TestComponent implements OnInit {
+
+  reactForm : FormGroup;
+
+  
+  constructor(private formBuilder: FormBuilder) {}
+
   ngOnInit(): void {
+    this.initForm();
   }
-  constructor() {}
+  
+  initForm(){
+    this.reactForm = this.formBuilder.group({    
+      "customSelect": ["", [Validators.required]],
+    });
+   }
 
   public custSelect = [
     { value: 'phone', title: 'Phone', },
     { value: 'e-mail', title: 'E-mail', },
     { value: 'skype', title: 'Skype', },
   ];
+
+  onSubmit() {
+    console.log("Данные с формы" ,this.reactForm.value);
+  }
 
 }

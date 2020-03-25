@@ -1,16 +1,18 @@
 <div class="wrapper">
-  <button (click)="currentValue()" class="lookLikeSelect">{{ currentValueOfSelect }}</button>
+  <button #currentValue class="lookLikeSelect" >{{ currentValueOfSelect }}</button>
   <div *ngIf="!visibility; else selectButtons"></div>
 </div>
 <ng-template #selectButtons>
   <div class="styleList">
     <button 
-      *ngFor="let mS of masSelect" 
+      *ngFor="let option of masSelect" 
       class="lookLikeSelect" 
-      name="{{ mS.value }}" 
-      value="{{ mS.title }}" 
+      name="{{ option.value }}" 
+      value="{{ option.title }}" 
       (click)="changeCurrentValue($event)">
-      {{ mS.title }}
+      {{ option.title }}
     </button>
   </div>
 </ng-template>
+
+<!---->

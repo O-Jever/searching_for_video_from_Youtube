@@ -1,3 +1,8 @@
-<form >
-    <custom-select [masSelect]="custSelect"></custom-select>
+<form [formGroup]="reactForm" (ngSubmit)="onSubmit()">
+    <custom-select formControlName="customSelect" [masSelect]="custSelect"></custom-select>
 </form>
+
+<div>
+    {{reactForm.value | json}}
+</div>
+

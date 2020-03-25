@@ -28,6 +28,11 @@ img {
     
 }
 
+.fixStyle {
+    width: 100%; 
+    word-wrap: break-word;
+}
+
 @media screen and (max-width: 860px) {
 	.card {
        flex: 1 2 50%;
@@ -43,6 +48,6 @@ img {
 
 @media screen and (max-width: 1200px) {
 	.card {
-        width: calc((100% - 30px)/3.3);
+        flex: 1 2 calc((100% - 30px)/3.3);
 	}
 }
