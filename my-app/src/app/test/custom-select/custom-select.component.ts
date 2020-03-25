@@ -1,5 +1,5 @@
-import { Component, forwardRef, Input, ElementRef, Renderer2, SimpleChanges } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, SelectControlValueAccessor } from "@angular/forms";
+import { Component, forwardRef, Input, SimpleChanges } from '@angular/core';
+import { NG_VALUE_ACCESSOR, SelectControlValueAccessor } from "@angular/forms";
 
 @Component({
   selector: 'custom-select',
@@ -16,16 +16,16 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, SelectControlValueAccessor } f
 export class CustomSelectComponent {
 
   @Input('masSelect') masSelect;
-  public visibility = false;
-  public currentValueOfSelect = 'Выберите элемент';
+  public visibility : boolean = false;
+  public currentValueOfSelect : string = 'Выберите элемент';
   
   constructor() {} 
 
-  currentValue() {
+  public currentValue() : void {
     this.visibility = true;
   }
 
-  changeCurrentValue(changes) {
+  public changeCurrentValue(changes) : void {
     this.currentValueOfSelect = changes.target.value; 
     this.visibility = false;
   }

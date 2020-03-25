@@ -4,6 +4,13 @@
 </div>
 <ng-template #selectButtons>
   <div class="styleList">
-    <button *ngFor="let mS of masSelect" class="lookLikeSelect" name="{{mS.value }}" value="{{ mS.title }}" (click)="changeCurrentValue($event)">{{ mS.title }}</button>
+    <button 
+      *ngFor="let mS of masSelect" 
+      class="lookLikeSelect" 
+      name="{{ mS.value }}" 
+      value="{{ mS.title }}" 
+      (click)="changeCurrentValue($event)">
+      {{ mS.title }}
+    </button>
   </div>
 </ng-template>
