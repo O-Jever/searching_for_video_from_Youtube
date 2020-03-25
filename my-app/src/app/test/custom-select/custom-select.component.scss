@@ -25,6 +25,10 @@
     flex-direction: column;
 }
 
+.styleList > button:first-child {
+    border-top-width: 0 ;
+}
+
 .styleList > button:not(:last-child) {
     border-bottom-width: 0 ;
 }
