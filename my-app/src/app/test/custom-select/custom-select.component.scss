@@ -1,0 +1,30 @@
+.wrapper {
+    margin: 20px;
+    padding: 25px;
+}
+.lookLikeSelect {
+    background-color: snow; 
+    color: DarkOliveGreen;
+    border: 1px solid silver;
+    width: 150px;
+    height: 50px;
+    line-height: 25px;
+}
+
+.lookLikeSelect:focus {
+    outline: 0;
+}
+
+.lookLikeSelect:hover {
+    background-color: silver;
+}
+
+.styleList {
+    transition: 5s;
+    display: flex;
+    flex-direction: column;
+}
+
+.styleList > button:not(:last-child) {
+    border-bottom-width: 0 ;
+}
