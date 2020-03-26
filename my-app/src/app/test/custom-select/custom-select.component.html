@@ -5,7 +5,7 @@
 <ng-template #selectButtons>
   <div class="styleList">
     <button 
-      *ngFor="let option of masSelect" 
+      *ngFor="let option of options" 
       class="lookLikeSelect" 
       name="{{ option.value }}" 
       value="{{ option.title }}" 
@@ -14,5 +14,3 @@
     </button>
   </div>
 </ng-template>
-
-<!---->

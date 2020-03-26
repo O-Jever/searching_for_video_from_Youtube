@@ -16,8 +16,7 @@ import { NG_VALUE_ACCESSOR, SelectControlValueAccessor, ControlValueAccessor } f
 })
 export class CustomSelectComponent implements ControlValueAccessor {
 
-  @Input('masSelect') masSelect;
-  selectedOption: any;
+  @Input('options') options;
 
   @ViewChild('currentValue') element: ElementRef;
 

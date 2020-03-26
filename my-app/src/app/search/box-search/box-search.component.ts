@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-box-search',
@@ -13,6 +14,7 @@ export class BoxSearchComponent implements OnInit, OnChanges{
   @Input('items') items;
   @Input('resStatus') resStatus;
   @ViewChild('cards') cards;
+  @ViewChild('myTitle') myTitle;
 
   public tempForResStatus: string = '';
   public tempForItems: any = [];
