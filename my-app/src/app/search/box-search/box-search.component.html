@@ -4,7 +4,7 @@
 <ng-template #cards>
     <div *ngFor="let item of tempForItems" class="card">
         <img src="{{ item.imgUrl.url }}" alt="{{ item.title }}">
-        <strong [innerHTML]="item.title" class="fixStyle"></strong> <!--Приходят непонятные знаки (например, &#39) - исправить-->
+        <strong [innerHTML]="item.title" class="fixStyle"></strong> 
         <p class="fixStyle">{{item.description}}</p>
         <a href="https://www.youtube.com/watch?v={{item.videoId}}" class="linkToVideo">Ссылка</a>
     </div>
